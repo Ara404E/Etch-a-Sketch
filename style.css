@@ -9,16 +9,30 @@ body{
 span{
     color:#dc143c;
 }
+
 #sketch-area{
     display: flex;
     flex-wrap: wrap;
-    margin: 100px auto 20px auto; 
+    margin: 50px auto 20px auto; 
     background-color: white;
    box-shadow: 10px 10px rgb(0,170,255,0.034);
 
 }
 #slider-container{
     margin: 0 200px;
+}
+
+#btn-container{
+    margin: 0 auto;
+    text-align: center;
+}
+#colorPicker-btn{
+    border: none;
+}
+button{
+    
+    margin: 30px 10px;
+    width: 200px;
 }
 
 #slider-value{

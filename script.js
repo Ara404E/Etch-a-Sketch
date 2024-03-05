@@ -31,9 +31,9 @@ sketchArea.style.width=sketchArea.style.height=`${GRIDSIDE}px`;
             rainbowBtn.classList.contains('active') ?
                 rainbowColors[Math.floor(Math.random() * rainbowColors.length)] :
                  colorPicker.classList.contains('active')?
-                 colorPicker.value:
-                    shadingColors[Math.floor(Math.random() * shadingColors.length)];
-                     // Default to empty string if neither rainbow nor color picker is active
+                 colorPicker.value
+                 :
+                shadingColors[Math.floor(Math.random() * shadingColors.length)];
         gridCell.dataset.colored = true;
     }
 }
@@ -43,6 +43,11 @@ sketchArea.style.width=sketchArea.style.height=`${GRIDSIDE}px`;
              delete gridCell.dataset.colored;
     }
 
+    function clearGridCell(gridCell){
+        gridCell.document.querySelectorAll('.cell');
+        gridCell.style.backgroundColor='white';
+        delete gridCell.dataset.colored;
+    }
 function createGridCells(squaresPerSide){
 
 
@@ -61,8 +66,8 @@ function createGridCells(squaresPerSide){
         gridCells.forEach( gridCell=> {
             gridCell.removeEventListener('mouseover', mouseOverEvent);
             gridCell.removeEventListener('click', clickEvent);
-            gridCell.addEventListener('mouseover', (e)=> mouseOverEvent(gridCell));
-            gridCell.addEventListener('click', (e)=> clickEvent(gridCell))
+            gridCell.addEventListener('mouseover', e=> mouseOverEvent(gridCell));
+            gridCell.addEventListener('click', e=> clickEvent(gridCell))
         });
     });
 
@@ -74,8 +79,8 @@ function createGridCells(squaresPerSide){
         gridCells.forEach( gridCell=> {
             gridCell.removeEventListener('mouseover', mouseOverEvent);
             gridCell.removeEventListener('click', clickEvent);
-            gridCell.addEventListener('mouseover', (e)=> mouseOverEvent(gridCell));
-            gridCell.addEventListener('click', (e)=> clickEvent(gridCell))
+            gridCell.addEventListener('mouseover', e=> mouseOverEvent(gridCell));
+            gridCell.addEventListener('click', e=> clickEvent(gridCell))
         });
     });
     rainbowBtn.addEventListener('click', ()=>{
@@ -101,24 +106,17 @@ function createGridCells(squaresPerSide){
         
         sketchArea.append(gridCell);
 } 
-
-
-  
     clearBtn.addEventListener('click', e=>{
         if(confirm('all your progress will be lost are you sure')){
-            const cells=document.querySelectorAll('.cell');
-            cells.forEach(cell =>{
-                cell.style.backgroundColor='white';
-                delete cell.dataset.colored;
-            });
-        }        
+            function clearGridCell(){}
+            gridCells.document.querySelectorAll('.cell');
+            gridCells.forEach(gridCell =>{
+                 clearGridCell(gridCell);
+            })
+           
+        }
     });
-
 }
-//  when i click rainbowtbtn i want the colors to change into rainbow
-
-
- 
 
 createGridCells(slider.value)
 slider.addEventListener('click', ()=>{
