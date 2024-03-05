@@ -3,12 +3,9 @@
     padding: 0;
 }
 body{
-    background-color: aliceblue;
+    background-color: #DCD6F7;
 }
 
-span{
-    color:#dc143c;
-}
 
 #sketch-area{
     display: flex;
@@ -28,6 +25,7 @@ span{
 }
 #colorPicker-btn{
     border: none;
+    width: 50px;
 }
 button{
     
@@ -57,7 +55,7 @@ button{
     appearance: none;
 width: 25px;
 height: 25px;
-background: #A6E3E9;
+background: #AA96DA;
 cursor: pointer;
 }
 .slider::-moz-range-thumb{
