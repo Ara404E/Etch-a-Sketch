@@ -43,11 +43,6 @@ sketchArea.style.width=sketchArea.style.height=`${GRIDSIDE}px`;
              delete gridCell.dataset.colored;
     }
 
-    function clearGridCell(gridCell){
-        gridCell.document.querySelectorAll('.cell');
-        gridCell.style.backgroundColor='white';
-        delete gridCell.dataset.colored;
-    }
 function createGridCells(squaresPerSide){
 
 
@@ -106,28 +101,29 @@ function createGridCells(squaresPerSide){
         
         sketchArea.append(gridCell);
 } 
-    clearBtn.addEventListener('click', e=>{
-        if(confirm('all your progress will be lost are you sure')){
-            function clearGridCell(){}
-            gridCells.document.querySelectorAll('.cell');
-            gridCells.forEach(gridCell =>{
-                 clearGridCell(gridCell);
-            })
-           
-        }
-    });
+
 }
-
-createGridCells(slider.value)
+createGridCells(16)
 slider.addEventListener('click', ()=>{
-
-       while(sketchArea.firstChild){
-        sketchArea.removeChild(sketchArea.firstChild)
-    }
+    
+    while(sketchArea.firstChild){
+        sketchArea.removeChild(sketchArea.firstChild) 
+    }   
+    
     sliderValue.textContent=`${slider.value} x ${slider.value} (resolution)`;
     createGridCells(slider.value)
-});
     
+});
+
+clearBtn.addEventListener('click', e=>{
+      if(confirm('all your progress will be lost are you sure')){
+          const gridCells=document.querySelectorAll('.cell');
+          gridCells.forEach(gridCell=>{
+              gridCell.style.backgroundColor='white';
+              delete gridCell.dataset.colored;
+          });
+      }
+  });
 
 
 

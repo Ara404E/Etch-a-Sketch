@@ -1,3 +1,9 @@
+html{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -28,7 +34,7 @@ body{
     width: 50px;
 }
 button{
-    
+    cursor: pointer;
     margin: 30px 10px;
     width: 200px;
 }
@@ -63,4 +69,20 @@ cursor: pointer;
     height: 25px;
     background:black ;
     cursor: pointer;
+}
+#plug-container{
+    margin: 0 auto;
+}
+.plug-paragraph{
+    margin-top: 10px;
+    text-align: center;
+}
+.color-picker{
+    cursor: pointer;
+}
+hr{
+    margin: 20px;
+}
+a{
+   text-decoration: none;
 }
